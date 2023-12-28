@@ -341,6 +341,20 @@ export default class QuillEditor extends React.Component<
     this.post({ command: 'updateContents', delta });
   };
 
+  undo = () => {
+    console.log("quill: undo 1");
+    this.post({ command: 'undo' });
+  };
+
+  redo = () => {
+    console.log("quill: redo 1");
+    this.post({ command: 'redo' });
+  };
+
+  clearHistory = () => {
+    this.post({ command: 'clearHistory' });
+  };
+
   getFormat = (
     index: { index: number; length: number } | number,
     length?: number

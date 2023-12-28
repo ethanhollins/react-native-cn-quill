@@ -25,12 +25,12 @@ export const ListButton: React.FC<Props> = ({ name, items }) => {
   const overlayStyle = styles?.toolbar?.toolset?.listButton?.overlay
     ? styles.toolbar?.toolset?.listButton.overlay(defaultStyles.overlay)
     : defaultStyles.overlay;
-  const textStyle = styles?.toolbar?.toolset?.listButton?.text
-    ? styles.toolbar?.toolset?.listButton.text(defaultStyles.text)
-    : defaultStyles.text;
   const imageStyle = styles?.toolbar?.toolset?.listButton?.image
     ? styles.toolbar?.toolset?.listButton.image(defaultStyles.image)
     : defaultStyles.image;
+  let textStyle = styles?.toolbar?.toolset?.listButton?.text
+    ? styles.toolbar?.toolset?.listButton.text(defaultStyles.text)
+    : defaultStyles.text;
   const showMenu = () => {
     if (open && selectionName === name) hide();
     else show(name, items);
@@ -39,6 +39,13 @@ export const ListButton: React.FC<Props> = ({ name, items }) => {
   const selectedValue = getSelected(name);
   const selectedItem = items.find((x) => x.valueOn === selectedValue);
   const isOpen = selectionName === name;
+
+  if (isOpen) {
+    textStyle = {
+      ...textStyle,
+      color: "#fff",
+    }
+  }
 
   return (
     <TouchableOpacity onPress={showMenu}>
@@ -60,7 +67,7 @@ const makeStyles = (theme: ToolbarTheme) =>
   StyleSheet.create({
     overlay: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: theme.overlay,
+      backgroundColor: "#273145",
       borderRadius: 3,
     },
     tool: {

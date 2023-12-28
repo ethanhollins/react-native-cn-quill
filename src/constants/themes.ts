@@ -9,7 +9,7 @@ export const darkTheme: ToolbarTheme = {
 
 export const lightTheme: ToolbarTheme = {
   background: '#ebedf0',
-  color: '#1c1e21',
-  overlay: 'rgba(55,99,115, .1)',
-  size: 30,
+  color: '#283246',
+  overlay: 'rgba(255,255,255, .1)',
+  size: 45,
 };

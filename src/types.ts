@@ -39,7 +39,7 @@ export interface IconListData {
 export interface TextListData {
   name: string;
   values: Array<ToggleData>;
-  type: formatType.select;
+  type: formatType.select | formatType.selectVertical;
 }
 
 export interface ToolbarTheme {

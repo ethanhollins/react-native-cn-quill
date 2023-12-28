@@ -4,6 +4,7 @@ import { colors } from './colors';
 export enum formatType {
   toggle,
   select,
+  selectVertical,
   color,
   icon,
 }
@@ -61,13 +62,13 @@ export const formats: Array<format> = [
   {
     name: 'header',
     defaults: [
-      { name: 'Normal', value: false, type: formatValueType.text },
-      { name: 'H1', value: 1, type: formatValueType.icon },
-      { name: 'H2', value: 2, type: formatValueType.icon },
-      { name: 'H3', value: 3, type: formatValueType.icon },
-      { name: 'H4', value: 4, type: formatValueType.text },
-      { name: 'H5', value: 5, type: formatValueType.text },
-      { name: 'H6', value: 6, type: formatValueType.text },
+      { name: 'Paragraph', value: false, type: formatValueType.text },
+      { name: 'Heading 1', value: 1, type: formatValueType.text },
+      { name: 'Heading 2', value: 2, type: formatValueType.text },
+      { name: 'Heading 3', value: 3, type: formatValueType.text },
+      { name: 'Heading 4', value: 4, type: formatValueType.text },
+      { name: 'Heading 5', value: 5, type: formatValueType.text },
+      { name: 'Heading 6', value: 6, type: formatValueType.text },
     ],
     type: formatType.select,
   },

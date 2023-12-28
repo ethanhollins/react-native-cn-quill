@@ -17,8 +17,8 @@ export const ToolbarSeparator: React.FC<Props> = ({ color }) => {
 
 const styles = StyleSheet.create({
   separator: {
-    width: 1,
-    marginTop: 4,
-    marginBottom: 4,
+    width: 2,
+    marginTop: 6,
+    marginBottom: 6,
   },
 });

@@ -45,7 +45,7 @@ export const ToolSet: React.FC<Props> = (props) => {
     <View style={rootStyle}>
       {tools.map((tool, index) => {
         const { type } = tool;
-        if (type === formatType.select) {
+        if (type === formatType.select || type === formatType.selectVertical) {
           return renderTextList(index, tool as TextListData);
         } else if (type === formatType.color) {
           return renderColorList(index, tool as ColorListData);

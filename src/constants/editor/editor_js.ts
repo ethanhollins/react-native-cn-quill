@@ -1,6 +1,7 @@
 export const editor_js = `
 <script>
 (function (doc) {
+  const consoleLog = (type, log) => window.ReactNativeWebView.postMessage(JSON.stringify({'type': 'Console', 'data': {'type': type, 'log': log}}));
 
   var getAttributes = function (node) {
     const attrArray = node?.attributes ? [...node.attributes] : [];
@@ -129,6 +130,18 @@ export const editor_js = `
 
   var updateContents = function (delta) {
     quill.updateContents(delta);
+  }
+
+  var undo = function () {
+    quill.history.undo();
+  }
+
+  var redo = function () {
+    quill.history.redo();
+  }
+
+  var clearHistory = function () {
+    quill.history.clear();
   }
 
   var dangerouslyPasteHTML = function (index, html) {
@@ -283,6 +296,15 @@ export const editor_js = `
         break;
       case 'formatText':
         formatText(msg.key, msg.index, msg.length, msg.formats, msg.source);
+        break;
+      case 'undo':
+        undo();
+        break;
+      case 'redo':
+        redo();
+        break;
+      case 'clearHistory':
+        clearHistory();
         break;
       default:
         break;

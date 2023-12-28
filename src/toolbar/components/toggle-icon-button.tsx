@@ -28,9 +28,17 @@ export const ToggleIconButton: React.FC<Props> = (props) => {
   const overlayStyle = styles?.selection?.iconToggle?.overlay
     ? styles.selection.iconToggle.overlay(defaultStyles.overlay)
     : defaultStyles.overlay;
-  const imageStyle = styles?.selection?.iconToggle?.image
+  let imageStyle = styles?.selection?.iconToggle?.image
     ? styles.selection.iconToggle.image(defaultStyles.image)
     : defaultStyles.image;
+
+  if (selected) {
+    imageStyle = {
+      ...imageStyle,
+      tintColor: "#fff",
+    }
+  }
+
   return (
     <TouchableWithoutFeedback onPress={handlePresss}>
       <View style={toolStyle}>

@@ -52,6 +52,8 @@ interface ProviderState {
   name: string;
 }
 
+const VERTICAL_HEIGHT = 200;
+
 export class ToolbarProvider extends Component<ProviderProps, ProviderState> {
   animatedValue: Animated.Value;
   constructor(props: ProviderProps) {
@@ -72,7 +74,8 @@ export class ToolbarProvider extends Component<ProviderProps, ProviderState> {
     if (theme) {
       this.setState({ options, name, isAnimating: true }, () => {
         Animated.timing(this.animatedValue, {
-          toValue: 2 * theme.size + 14,
+          // toValue: 2 * theme.size + 14,
+          toValue: VERTICAL_HEIGHT,
           duration: 200,
           easing: Easing.sin,
           useNativeDriver: false,
@@ -87,7 +90,7 @@ export class ToolbarProvider extends Component<ProviderProps, ProviderState> {
     if (theme) {
       this.setState({ isAnimating: true }, () => {
         Animated.timing(this.animatedValue, {
-          toValue: theme.size + 10,
+          toValue: theme.size + 8,
           duration: 200,
           easing: Easing.linear,
           useNativeDriver: false,
@@ -105,7 +108,7 @@ export class ToolbarProvider extends Component<ProviderProps, ProviderState> {
 
   componentDidMount() {
     const { theme } = this.props;
-    this.animatedValue = new Animated.Value(theme.size + 10);
+    this.animatedValue = new Animated.Value(theme.size + 8);
   }
 
   isSelected = (name: string, value: any = true): boolean => {

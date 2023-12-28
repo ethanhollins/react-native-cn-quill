@@ -29,7 +29,14 @@ export const create_quill = ({
     `;
   }
 
-  let modules = `toolbar: ${toolbar},`;
+  let modules = `
+  history: {
+    delay: 2000,
+    maxStack: 500,
+    userOnly: true
+  },
+  toolbar: ${toolbar}, 
+  `;
 
   if (clipboard) {
     modules += `clipboard: ${clipboard},`;
