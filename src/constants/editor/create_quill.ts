@@ -7,6 +7,7 @@ export const create_quill = ({
   theme,
   customFonts = [],
   customJS,
+  readOnly,
 }: {
   id: string;
   toolbar: 'false' | string;
@@ -16,6 +17,7 @@ export const create_quill = ({
   theme: 'snow' | 'bubble';
   customFonts: Array<string>;
   customJS: string;
+  readOnly: boolean;
 }) => {
   let font = '';
   if (customFonts.length > 0) {
@@ -54,7 +56,7 @@ export const create_quill = ({
     modules: { ${modules} },
     placeholder: '${placeholder}',
     theme: '${theme}',
-    readOnly: true
+    readOnly: ${readOnly}
   });
   </script>
   `;
