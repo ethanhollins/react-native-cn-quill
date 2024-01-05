@@ -55,6 +55,7 @@ export const create_quill = ({
     placeholder: '${placeholder}',
     theme: '${theme}'
   });
+  quill.enable(false);
   </script>
   `;
 };

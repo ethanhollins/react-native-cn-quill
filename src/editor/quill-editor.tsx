@@ -342,12 +342,10 @@ export default class QuillEditor extends React.Component<
   };
 
   undo = () => {
-    console.log("quill: undo 1");
     this.post({ command: 'undo' });
   };
 
   redo = () => {
-    console.log("quill: redo 1");
     this.post({ command: 'redo' });
   };
 
