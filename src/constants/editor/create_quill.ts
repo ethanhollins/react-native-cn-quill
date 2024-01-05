@@ -53,9 +53,9 @@ export const create_quill = ({
   var quill = new Quill('#${id}', {
     modules: { ${modules} },
     placeholder: '${placeholder}',
-    theme: '${theme}'
+    theme: '${theme}',
+    readOnly: true
   });
-  quill.enable(false);
   </script>
   `;
 };
